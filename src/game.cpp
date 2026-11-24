@@ -32,6 +32,11 @@ void playGame() {
 
             return;
         }
-        std::cout << "Try again!\n\n";
+
+        if (guess < target) {
+            std::cout << "Too low!\n\n";
+        } else {
+            std::cout << "Too high!\n\n";
+        }
     }
 }
