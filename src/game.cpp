@@ -11,7 +11,9 @@ void playGame() {
     std::cout << "I'm thinking of a number between " << minimum
               << " and " << maximum << ".\n\n";
 
+    int attemptsRemaining = 5;   // making a var for storing attempts remaining
     while (true) {
+        std::cout << "Attempts remaining: " << attemptsRemaining << '\n';
         std::cout << "Your guess: ";
         int guess;
         if (!(std::cin >> guess)) {
@@ -21,6 +23,13 @@ void playGame() {
 
         if (guess == target) {
             std::cout << "You win!\n";
+            return;
+        }
+
+        --attemptsRemaining; // decrementing the attempts remaining after each failed attempt 
+        if (attemptsRemaining == 0) {
+            std::cout << "You lose! The number was " << target << ".\n"; // showing that user's guess didnt match after attepts ended
+
             return;
         }
 
